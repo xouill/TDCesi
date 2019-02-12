@@ -1,0 +1,66 @@
+body {
+    background-image: url("../img/soiree-etudiante-fraternite.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+footer {
+    top: 859px;
+    right: 0px;
+    left: 650px;
+    z-index: 3;
+    color: white;
+    position: absolute;
+    z-index: 3;
+}
+.background_accueil {
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+    width: auto;
+    height: 900px;
+}
+.background_white {
+    background-color: white;
+    color: #292d32;
+    z-index: 2;
+    position: absolute;
+    top: 400px;
+    left: 470px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.background_white>h1{
+    margin: 20px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.background_white>a{
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: x-large;
+}
+table {
+    width: 100%;
+    height: auto;
+    padding-left: 130px;
+}
+tr {
+    display: inline-block;
+    width: 24%;
+    padding-bottom: 20px;
+}
+img {
+    width: 80%;
+}
+.container>h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: white;
+}
+.container {
+    text-align: center;
+}
