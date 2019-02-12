@@ -1,9 +1,11 @@
 from django.shortcuts import render
 
 # Create your views here.
-from app.models import Groupe
-from django.views.generic import TemplateView, DetailView, ListView
-from app.models import Concert
+from app.models import Groupe, Concert, PlaceVendu
+from django.views.generic import TemplateView, DetailView, ListView, FormView
+
+from app.forms.reservation import ConcertReservationForm
+from django.urls import reverse_lazy
 
 
 class IndexView(TemplateView):
@@ -18,3 +20,19 @@ class ConcertDetailView(DetailView):
 class ConcertListView(ListView):
     template_name = 'list_view.html'
     model = Groupe
+
+
+class ConcertReservationFormView(FormView):
+    form_class = ConcertReservationForm
+    template_name = 'reservation.html'
+    success_url = reverse_lazy('reservation')  # redirection quand réussi
+
+    def get_initial(self):
+        initial = super(ConcertReservationFormView, self).get_initial()
+        initial['adresseMail'] = ''
+        return initial
+
+    def form_valid(self, form):
+        # si le formulaire est valide on arrive ici
+        return super(ConcertReservationFormView, self).form_valid(form)
+        # faire la liaison avec la bdd

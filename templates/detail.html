@@ -13,7 +13,7 @@
             <p>{{ object.lieux }}</p>
         </div>
 
-
+        <a href="{% url 'reservation' object.pk %}"><button class="btn btn-success">Réserver !</button></a>
         {#    <a href="{% url 'cocktails_list' %}">list des cocktail</a>#}
     </div>
 
