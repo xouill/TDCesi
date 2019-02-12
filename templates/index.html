@@ -7,10 +7,13 @@
 {%  block body %}
     <div class="container">
         <h1 class="titrePage">Reservation de concert</h1>
-
-
-
-        {#    <a href="{% url 'cocktails_list' %}">list des cocktail</a>#}
+        <ul>
+        {% for groupe in groupes %}
+            <li>
+                <h1>{{ groupe.nom }}</h1>
+                <a href="{% url '#' %}" img="{{ groupe.PhotoDeGroupe }}"></a>
+            </li>
+        {% endfor %}
+        </ul>
     </div>
-
 {% endblock %}

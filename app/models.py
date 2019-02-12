@@ -10,6 +10,13 @@ class Groupe(models.Model):
     genre = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
 
+    def __str__(self):
+        return "{} {}".format(
+            self.photoDeGroupe if self.photoDeGroupe is not None else '???',
+            self.nom if self.nom is not None else '???',
+            self.genre if self.genre is not None else '???',
+            self.description if self.description is not None else '???'
+        )
 
 class Concert(models.Model):
     intitule = models.CharField(max_length=200)
