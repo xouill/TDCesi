@@ -18,6 +18,7 @@ class Concert(models.Model):
                                default="none",
                                related_name='groupe')
     lieux = models.CharField(max_length=200)
+    prix = models.IntegerField()
     placeMax = models.IntegerField()
 
 
