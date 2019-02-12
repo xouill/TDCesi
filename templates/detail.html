@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ object.intitule }}
+{% endblock %}
+
+{%  block body %}
+    <div class="container">
+        <h1 class="titrePage">{{ object.groupe }}</h1>
+
+        <div class="container">
+            <h2>Lieux du concert</h2>
+            <p>{{ object.lieux }}</p>
+        </div>
+
+
+        {#    <a href="{% url 'cocktails_list' %}">list des cocktail</a>#}
+    </div>
+
+{% endblock %}

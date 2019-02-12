@@ -14,10 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url
 from django.urls import path
-from app.views import IndexView
+from app.views import IndexView, ConcertDetailView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
+    url(r'detail/(?P<pk>[0-9]+)', ConcertDetailView.as_view(template_name='detail.html'), name='detail')
 ]
