@@ -11,5 +11,5 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         result = super(IndexView, self).get_context_data(**kwargs)
-        result['groupes'] = Groupe
+        result['groupes'] = Groupe.objects
         return result

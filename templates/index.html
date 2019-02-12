@@ -8,7 +8,7 @@
     <div class="container">
         <h1 class="titrePage">Reservation de concert</h1>
         <ul>
-        {% for groupe in groupes %}
+        {% for groupe in object.groupes %}
             <li>
                 <h1>{{ groupe.nom }}</h1>
                 <a href="{% url '#' %}" img="{{ groupe.PhotoDeGroupe }}"></a>
