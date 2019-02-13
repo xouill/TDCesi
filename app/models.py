@@ -29,7 +29,7 @@ class Concert(models.Model):
     date = models.DateField(default="2019-02-13")
     place = models.ForeignKey(TypePlace,
                               on_delete=models.DO_NOTHING,
-                              default="none",
+                              default=1,
                               null=True,
                               related_name="TypePlace")
 
@@ -41,6 +41,7 @@ class PlaceVendu(models.Model):
     concert = models.ForeignKey(Concert,
                                 on_delete=models.DO_NOTHING,
                                 default="none",
+                                null=True,
                                 related_name='concert'
                                 )
     adresseMail = models.EmailField()
