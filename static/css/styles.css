@@ -15,7 +15,7 @@ footer {
     z-index: 3;
 }
 .background_accueil {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.3);
     z-index: 1;
     width: auto;
     height: 900px;
@@ -25,8 +25,8 @@ footer {
     color: #292d32;
     z-index: 2;
     position: absolute;
-    top: 400px;
-    left: 470px;
+    top: 90%;
+    left: 33%;
     text-align: center;
     padding-bottom: 20px;
     border-radius: 3px;
