@@ -23,10 +23,15 @@ class TypePlace(models.Model):
 
 
 class Concert(models.Model):
-    date = models.DateField(default="2019-02-13")
     intitule = models.CharField(max_length=200)
     lieux = models.CharField(max_length=200)
     placeMax = models.IntegerField()
+    date = models.DateField(default="2019-02-13")
+    place = models.ForeignKey(TypePlace,
+                              on_delete=models.DO_NOTHING,
+                              default="none",
+                              null=True,
+                              related_name="TypePlace")
 
     def __str__(self):
         return self.intitule if self.intitule is not None else "erreur"
