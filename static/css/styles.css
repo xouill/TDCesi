@@ -6,14 +6,14 @@ body {
     background-size: cover;
 }
 footer {
-    top: 114%;
-    right: 0%;
-    left: 0%;
     z-index: 3;
     color: white;
-    position: absolute;
-    z-index: 3;
     text-align: center;
+    background: rgba(255, 255, 255, 0.3);
+}
+footer>p {
+    margin: 0;
+    padding-bottom: 15px;
 }
 .background_accueil {
     background: rgba(255, 255, 255, 0.3);
@@ -27,7 +27,7 @@ footer {
     z-index: 2;
     position: absolute;
     top: 60%;
-    left: 33%;
+    left: 35%;
     text-align: center;
     padding-bottom: 20px;
     border-radius: 3px;
