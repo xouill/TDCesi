@@ -50,9 +50,4 @@ class Migration(migrations.Migration):
                 ('prixPlace', models.IntegerField(default=0)),
             ],
         ),
-        migrations.AddField(
-            model_name='concert',
-            name='place',
-            field=models.ForeignKey(default='none', null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='TypePlace', to='app.TypePlace'),
-        ),
     ]
