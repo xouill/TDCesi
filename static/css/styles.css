@@ -6,9 +6,9 @@ body {
     background-size: cover;
 }
 footer {
-    top: 859px;
+    top: 173%;
     right: 0px;
-    left: 650px;
+    left: 44%;
     z-index: 3;
     color: white;
     position: absolute;
@@ -25,7 +25,7 @@ footer {
     color: #292d32;
     z-index: 2;
     position: absolute;
-    top: 90%;
+    top: 60%;
     left: 33%;
     text-align: center;
     padding-bottom: 20px;
