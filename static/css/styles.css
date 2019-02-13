@@ -1,18 +1,19 @@
 body {
-    background-image: url("../img/soiree-etudiante-fraternite.jpg");
+    background-image: url("../img/fete.jpg");
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 footer {
-    top: 173%;
+    top: 114%;
     right: 0px;
     left: 44%;
     z-index: 3;
     color: white;
     position: absolute;
     z-index: 3;
+    text-align: center;
 }
 .background_accueil {
     background: rgba(255, 255, 255, 0.3);
@@ -52,7 +53,7 @@ tr {
     width: 24%;
     padding-bottom: 20px;
 }
-img {
+td>a>img {
     width: 80%;
 }
 .container>h1 {
@@ -63,4 +64,25 @@ img {
 }
 .container {
     text-align: center;
+}
+#slide1_container {
+  width:450px;
+  height:281px;
+  overflow:hidden; /* So the sliding bit doesn't stick out. */
+  margin:0 auto;
+}
+#slide1_images {
+  /* This is the bit that moves. It has 4 images, so 4 * 450 = 1800. You could use javascript
+  to work this out instead by counting images. */
+  width:1800px;
+
+  -webkit-transition:all 1.0s ease-in-out;
+  -moz-transition:all 1.0s ease-in-out;
+  -o-transition:all 1.0s ease-in-out;
+  transition:all 1.0s ease-in-out;
+}
+#slide1_images img {
+  padding:0;
+  margin:0;
+  float:left; /* All the images are in a row next to each other. */
 }

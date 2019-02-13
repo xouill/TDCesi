@@ -7,6 +7,18 @@
 {%  block body %}
     <div class="container">
         <h1 class="titrePage">Prochain Concert</h1>
+        <div id="slide1_container" class="shadow">
+         <div id="slide1_images">
+             {% for object in object_list|slice:":4" %}
+                <img src="{{ object.photoDeGroupe }}">
+             {% endfor %}
+          </div>
+        </div>
+        <p id="slide1_controls">
+            {% for object in object_list|slice:":4" %}
+            <span class="selected">{{ object.nom }}</span>
+            {% endfor %}
+        </p>
         <table class="table">
             <thead>
                 <tr>
