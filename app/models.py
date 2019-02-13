@@ -27,6 +27,12 @@ class Concert(models.Model):
     lieux = models.CharField(max_length=200)
     placeMax = models.IntegerField()
     date = models.DateField(default="2019-02-13")
+    groupe = models.ForeignKey(Groupe,
+                               on_delete=models.DO_NOTHING,
+                               default=1,
+                               null=True,
+                               related_name='Groupe'
+                               )
 
     def __str__(self):
         return self.intitule if self.intitule is not None else "erreur"
