@@ -10,6 +10,9 @@ class Groupe(models.Model):
     genre = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.nom if self.nom is not None else "erreur"
+
 
 class Concert(models.Model):
     intitule = models.CharField(max_length=200)
@@ -21,6 +24,9 @@ class Concert(models.Model):
     prix = models.IntegerField()
     placeMax = models.IntegerField()
 
+    def __str__(self):
+        return self.intitule if self.intitule is not None else "erreur"
+
 
 class PlaceVendu(models.Model):
     concert = models.ForeignKey(Concert,
@@ -30,3 +36,7 @@ class PlaceVendu(models.Model):
                                 )
     adresseMail = models.CharField(max_length=200)
     place = models.IntegerField()
+
+    def __str__(self):
+        return self.concert if self.concert is not None else "erreur"
+
