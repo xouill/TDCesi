@@ -28,6 +28,14 @@ class Concert(models.Model):
         return self.intitule if self.intitule is not None else "erreur"
 
 
+class TypePlace(models.Model):
+    place = models.CharField(max_length=200)
+    prixPlace = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.place if self.place is not None else "erreur"
+
+
 class PlaceVendu(models.Model):
     concert = models.ForeignKey(Concert,
                                 on_delete=models.DO_NOTHING,
@@ -35,8 +43,10 @@ class PlaceVendu(models.Model):
                                 related_name='concert'
                                 )
     adresseMail = models.CharField(max_length=200)
-    place = models.IntegerField()
+    place = models.ForeignKey(TypePlace,
+                               on_delete=models.DO_NOTHING,
+                               default="none",
+                               related_name='TypePlace')
 
     def __str__(self):
         return self.concert if self.concert is not None else "erreur"
-
