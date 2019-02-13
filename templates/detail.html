@@ -8,18 +8,16 @@
     <div class="container">
         <h1 class="titrePage">{{ object.groupe }}</h1>
 
-        <div class="container">
+        <div class="detail">
             <img src="../{{ object.groupe.photoDeGroupe }}">
             <h2>Lieux du concert</h2>
             <p>{{ object.lieux }}</p>
-            <h2>Description du groupe</h2>
-            <p>{{ object.groupe.description }}</p>
             <h2>Genre</h2>
             <p>{{ object.groupe.genre }}</p>
+            <h2 class="description">Description du groupe</h2>
+            <p>{{ object.groupe.description }}</p>
+            <a href="{% url 'reservation' object.pk %}"><button class="btn btn-success">Réserver !</button></a>
         </div>
-
-        <a href="{% url 'reservation' object.pk %}"><button class="btn btn-success">Réserver !</button></a>
-        {#    <a href="{% url 'cocktails_list' %}">list des cocktail</a>#}
     </div>
 
 {% endblock %}
