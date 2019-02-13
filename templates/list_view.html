@@ -16,7 +16,7 @@
             <tbody>
                 {% for object in object_list %}
                     <tr>
-                        <td> <img src="{{ object.photoDeGroupe }}"> <!-- liste les titre du model cocktail -->
+                        <td> <a href="{% url 'detail' object.pk %}"> <img src="{{ object.photoDeGroupe }}"> </a> <!-- liste les titre du model cocktail -->
                         {% if not forloop.last %}
                             <br>
                         {% endif %}

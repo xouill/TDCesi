@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    formulaire Reservation
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="titrePage">Réservation</h1>
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Valider !</button>
+        </form>
+
+    </div>
+{% endblock %}
