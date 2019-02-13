@@ -42,11 +42,13 @@ class PlaceVendu(models.Model):
                                 default="none",
                                 related_name='concert'
                                 )
-    adresseMail = models.CharField(max_length=200)
+    adresseMail = models.EmailField()
+    nombrePlace = models.IntegerField(default=1)
     place = models.ForeignKey(TypePlace,
-                               on_delete=models.DO_NOTHING,
-                               default="none",
-                               related_name='TypePlace')
+                              on_delete=models.DO_NOTHING,
+                              default="none",
+                              related_name='TypePlace'
+                              )
 
     def __str__(self):
         return self.concert if self.concert is not None else "erreur"
