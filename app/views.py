@@ -21,7 +21,7 @@ class ConcertDetailView(DetailView):
 
 class ConcertListView(ListView):
     template_name = 'list_view.html'
-    model = Groupe
+    model = Concert
 
 
 class ConcertReservationFormView(FormView):

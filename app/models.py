@@ -50,4 +50,4 @@ class PlaceVendu(models.Model):
     place = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.concert if self.concert is not None else "erreur"
+        return self.concert.intitule if self.concert.intitule is not None else "erreur"

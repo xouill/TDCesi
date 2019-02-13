@@ -8,13 +8,13 @@ body {
 footer {
     z-index: 3;
     color: white;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.3);
+    text-align: center;);
 }
 footer>p {
     margin: 0;
     padding-bottom: 15px;
 }
+/*Page HOME ('index.html')*/
 .background_accueil {
     background: rgba(255, 255, 255, 0.3);
     z-index: 1;
@@ -43,6 +43,7 @@ footer>p {
     color: black;
     font-size: x-large;
 }
+/*Formulaire de reservations*/
 form {
     background: rgba(0, 0, 0, 0.8);
     color: white;
@@ -60,15 +61,18 @@ form>p {
 }
 form>button {
     border-radius: 4px;
-    background-color: white;
+    background-color: burlywood;
     width: 25%;
     height: 30px;
     font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: large;
 }
 input, select {
     margin-left: 10px;
     border-radius: 4px;
 }
+/*Page liste des concert*/
 table {
     width: 100%;
     height: auto;
@@ -77,7 +81,7 @@ table {
 tr {
     display: inline-block;
     width: 24%;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 td>a>img {
     width: 80%;
@@ -92,6 +96,7 @@ td>a>img {
 .container {
     text-align: center;
 }
+/*Sliders*/
 #slide1_container {
   width:450px;
   height:281px;
@@ -132,6 +137,44 @@ p#slide1_controls {
     border: 0;
     -ms-interpolation-mode: bicubic;
 }
-.mySlides {
-    display:none;
+/*Page de detail du concert*/
+.detail {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    margin: 80px 300Px;
+    text-align: left;
+    height: 460px;
+}
+.detail>h2 {
+    padding-top: 27px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+.description {
+    margin-top: 60px !important;
+    margin-left: 10px
+}
+.detail>p {
+    padding-left: 10px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.detail>a>button {
+    border-radius: 4px;
+    background-color: burlywood;
+    width: 25%;
+    height: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 600px;
+    margin-top: 35px;
+    color: black;
+    font-size: large;
+}
+.detail>img {
+    float:left;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-right: 15px;
 }
