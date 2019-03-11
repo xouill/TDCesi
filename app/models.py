@@ -57,3 +57,7 @@ class PlaceVendu(models.Model):
 
     def __str__(self):
         return self.concert.intitule if self.concert.intitule is not None else "erreur"
+
+
+    #ADD EN BASE
+    def save_model(self,request,PlaceVendu,ConcertReservationFormView):
