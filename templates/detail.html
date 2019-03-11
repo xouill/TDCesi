@@ -16,6 +16,13 @@
             <p>{{ object.groupe.genre }}</p>
             <h2 class="description">Description du groupe</h2>
             <p>{{ object.groupe.description }}</p>
+
+            {% for place in type_place %}
+                <p>{{ place.place }} : {{ place.prixPlace }} </p>
+                {% if not forloop.last %}
+                    <br>
+                {% endif %}
+            {% endfor %}
             <a href="{% url 'reservation' object.pk %}"><button class="btn btn-success">Réserver !</button></a>
         </div>
     </div>

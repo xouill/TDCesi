@@ -3,6 +3,7 @@ from django import forms
 
 from app.models import PlaceVendu
 
+
 class ConcertReservationForm(models.ModelForm):
 
     class Meta:

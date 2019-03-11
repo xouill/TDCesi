@@ -1,13 +1,14 @@
 from django.http import request
-from django.shortcuts import render
 
 # Create your views here.
-from app.models import Groupe, Concert, PlaceVendu
+from app.models import Groupe, Concert, TypePlace
 from django.views.generic import TemplateView, DetailView, ListView, FormView
 
 from app.forms.reservation import ConcertReservationForm
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
+from urllib import request
+from django.http import request
 
 
 class IndexView(TemplateView):
@@ -17,6 +18,12 @@ class IndexView(TemplateView):
 class ConcertDetailView(DetailView):
     template_name = 'detail.html'
     model = Concert
+
+    def get_context_data(self, **kwargs):
+        result = super(ConcertDetailView, self).get_context_data(**kwargs)
+        result['type_place'] = TypePlace.objects.filter(concert=self.object)  # moddifier pour récupérer la pk dans l'url !!
+
+        return result
 
 
 class ConcertListView(ListView):
@@ -29,9 +36,10 @@ class ConcertReservationFormView(FormView):
     template_name = 'reservation.html'
     success_url = reverse_lazy('reservation')  # redirection quand réussi
 
-    def get_initial(self):
+    def get_initial(self, **kwargs):
         initial = super(ConcertReservationFormView, self).get_initial()
         initial['adresseMail'] = ''
+        initial['concert'] = Concert.objects.get(pk = self.kwargs['pk'])  # a faire pour rendre dymanique par rapport a la pk dans l'url
         return initial
 
     def form_valid(self, form):

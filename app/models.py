@@ -14,14 +14,6 @@ class Groupe(models.Model):
         return self.nom if self.nom is not None else "erreur"
 
 
-class TypePlace(models.Model):
-    place = models.CharField(max_length=200)
-    prixPlace = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.place if self.place is not None else "erreur"
-
-
 class Concert(models.Model):
     intitule = models.CharField(max_length=200)
     lieux = models.CharField(max_length=200)
@@ -38,12 +30,26 @@ class Concert(models.Model):
         return self.intitule if self.intitule is not None else "erreur"
 
 
+class TypePlace(models.Model):
+    place = models.CharField(max_length=200)
+    prixPlace = models.IntegerField(default=0)
+    concert = models.ForeignKey(Concert,
+                                on_delete=models.DO_NOTHING,
+                                default=-1,
+                                null=True,
+                                related_name='concertTypePlace'
+                                )
+
+    def __str__(self):
+        return self.place if self.place is not None else "erreur"
+
+
 class PlaceVendu(models.Model):
     concert = models.ForeignKey(Concert,
                                 on_delete=models.DO_NOTHING,
-                                default="none",
+                                default=-1,
                                 null=True,
-                                related_name='concert'
+                                related_name='concertPlaceVendu'
                                 )
     adresseMail = models.EmailField()
     nombrePlace = models.IntegerField(default=1)
