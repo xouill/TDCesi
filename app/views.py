@@ -21,8 +21,8 @@ class ConcertDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         result = super(ConcertDetailView, self).get_context_data(**kwargs)
-        result['type_place'] = TypePlace.objects.filter(concert=self.object)  # moddifier pour récupérer la pk dans l'url !!
-
+        result['type_place'] = TypePlace.objects.filter()# récupère les place
+        # result['type_place'] = TypePlace.objects.filter(concert=self.object)
         return result
 
 
@@ -48,7 +48,7 @@ class ConcertReservationFormView(FormView):
         initial = super(ConcertReservationFormView, self).get_initial()
         initial['adresse_mail'] = ''
         initial['concert'] = Concert.objects.get(pk=self.kwargs['pk'])
-        # initial['type_place'] = TypePlace.objects.all().filter(Concert_id=self.kwargs['pk'])
+        # initial['type_place'] = TypePlace.objects.filter(concert_id=self.kwargs['pk'])
         return initial
 
     def form_valid(self, form):

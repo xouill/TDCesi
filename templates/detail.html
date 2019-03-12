@@ -5,6 +5,13 @@
 {% endblock %}
 
 {%  block body %}
+    <div>
+        <ul>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'list' %}"><button class="btn btn-success">Liste des concerts</button></a>
+            </li>
+        </ul>
+    </div>
     <div class="container">
         <h1 class="titrePage">{{ object.groupe }}</h1>
 
