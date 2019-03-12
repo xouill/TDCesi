@@ -80,8 +80,10 @@ table {
 }
 tr {
     display: inline-block;
-    width: 24%;
-    padding-bottom: 40px;
+    margin-right: 5%;
+    margin-bottom: 40px;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 td>a>img {
     width: 80%;
@@ -141,9 +143,9 @@ p#slide1_controls {
 .detail {
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    margin: 80px 300Px;
+    margin: 5% 20%;
     text-align: left;
-    height: 460px;
+    padding-bottom: 2%;
 }
 .detail>h2 {
     padding-top: 27px;
@@ -177,4 +179,9 @@ p#slide1_controls {
     margin-left: 40px;
     margin-top: 30px;
     margin-right: 15px;
+}
+.list
+{
+    background: rgba(0,0,0,0.8);
+    color: white;
 }
