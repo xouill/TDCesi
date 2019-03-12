@@ -44,7 +44,7 @@ class ConcertReservationFormView(FormView):
         initial = super(ConcertReservationFormView, self).get_initial()
         initial['adresseMail'] = ''
         initial['concert'] = Concert.objects.get(pk=self.kwargs['pk'])  # a faire pour rendre dymanique par rapport a la pk dans l'url
-        # initial['place'] = TypePlace.objects.all().filter(Concert_id=self.kwargs['pk'])
+        #initial['place'] = TypePlace.objects.all().filter(Concert_id=self.kwargs['pk'])
         return initial
 
     def form_valid(self, form):
@@ -60,6 +60,7 @@ class ConcertReservationFormView(FormView):
             return super(ConcertReservationFormView, self).form_invalid(form)
 
         self.place = form.cleaned_data.get('place', None)
+        self.nombrePlace = form.cleaned_data.get('nombrePlace', None)
         self.concert = form.cleaned_data.get('concert')
 
         # FAIRE LE TYPE DE PLACE
@@ -69,26 +70,26 @@ class ConcertReservationFormView(FormView):
 
         # Envoi de l'email
         send_mail('Réservation Concert',  #Subject
-                  'Vous avez réservé ' + self.place+' places pour le concert :' + self.concert.intitule,  #Message
+                  'Vous avez réservé ' + str(self.nombrePlace)+' place(s) pour le concert : ' + self.concert.intitule,  #Message
                   '',  #emailFrom
                   #['noreply.cesi.concert@gmail.com'], #emailTo
                   [self.email, ],  # emailTo
                   fail_silently=False)
 
         # si le formulaire est valide on arrive ici
-        concert = Concert.objects.get(pk=form.cleaned_data['concert'])
-        place = TypePlace.objects.get(pk=form.cleaned_data['place'])
+        concert = Concert.objects.get(intitule=form.cleaned_data['concert'])
+        place = TypePlace.objects.get(place=form.cleaned_data['place'])
         PlaceVendu.objects.create(concert=concert,
                                   adresseMail=form.cleaned_data['adresseMail'],
                                   place=place,
                                   nombrePlace=form.cleaned_data['nombrePlace'])
-        PlaceVendu.save()
+        PlaceVendu.save(self.place)
         return super(ConcertReservationFormView, self).form_valid(form)
         # faire la liaison avec la bdd
 
     def get_success_url(self):
         #Message à utilisation unique
         messages.success(self.request, 'Réservation effectuée pour {}'.format(self.email))
-        messages.success(self.request, 'Nombre de places {}'.format(self.place))
+        messages.success(self.request, 'Nombre de places {}'.format(str(self.nombrePlace)))
 
         return reverse_lazy('success', kwargs={"pk": self.kwargs['pk']})
