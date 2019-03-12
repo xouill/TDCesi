@@ -19,7 +19,7 @@
             <h2 style="padding-left: 1%">prix de la place</h2>
             <p>
                 {% for place in type_place %}
-                    {{ place.place }} : {{ place.prixPlace }} € <br>
+                    {{ place.nom }} : {{ place.prix }} € <br>
                 {% endfor %}
             </p>
             <a href="{% url 'reservation' object.pk %}"><button class="btn btn-success">Réserver !</button></a>
