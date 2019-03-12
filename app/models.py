@@ -53,11 +53,11 @@ class PlaceVendu(models.Model):
                                 )
     adresseMail = models.EmailField()
     nombrePlace = models.IntegerField(default=1)
-    place = models.CharField(max_length=200)
+    place = models.ForeignKey(TypePlace,
+                              on_delete=models.DO_NOTHING,
+                              default=-1,
+                              null=True,
+                              related_name='TypePlaceVendu')
 
     def __str__(self):
         return self.concert.intitule if self.concert.intitule is not None else "erreur"
-
-
-    #ADD EN BASE
-    def save_model(self,request,PlaceVendu,ConcertReservationFormView):

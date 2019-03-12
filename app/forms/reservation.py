@@ -8,7 +8,7 @@ class ConcertReservationForm(models.ModelForm):
 
     class Meta:
         model = PlaceVendu
-        fields = ('adresseMail', 'concert', 'place')
+        fields = ('adresseMail', 'concert', 'place', 'nombrePlace')
 
     def clean_adresseMail(self):  # renvoi la valeur et née toi le champs titre
         adresseMail = self.cleaned_data['adresseMail']

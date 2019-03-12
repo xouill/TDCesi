@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import request
 
 # Create your views here.
-from app.models import Groupe, Concert, TypePlace
+from app.models import Groupe, Concert, TypePlace, PlaceVendu
 from django.views.generic import TemplateView, DetailView, ListView, FormView
 
 from app.forms.reservation import ConcertReservationForm
@@ -44,6 +44,7 @@ class ConcertReservationFormView(FormView):
         initial = super(ConcertReservationFormView, self).get_initial()
         initial['adresseMail'] = ''
         initial['concert'] = Concert.objects.get(pk=self.kwargs['pk'])  # a faire pour rendre dymanique par rapport a la pk dans l'url
+        # initial['place'] = TypePlace.objects.all().filter(Concert_id=self.kwargs['pk'])
         return initial
 
     def form_valid(self, form):
@@ -75,9 +76,15 @@ class ConcertReservationFormView(FormView):
                   fail_silently=False)
 
         # si le formulaire est valide on arrive ici
-
-
+        concert = Concert.objects.get(pk=form.cleaned_data['concert'])
+        place = TypePlace.objects.get(pk=form.cleaned_data['place'])
+        PlaceVendu.objects.create(concert=concert,
+                                  adresseMail=form.cleaned_data['adresseMail'],
+                                  place=place,
+                                  nombrePlace=form.cleaned_data['nombrePlace'])
+        PlaceVendu.save()
         return super(ConcertReservationFormView, self).form_valid(form)
+        # faire la liaison avec la bdd
 
     def get_success_url(self):
         #Message à utilisation unique
